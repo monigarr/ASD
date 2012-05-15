@@ -1,0 +1,99 @@
+/*
+    Full Sail University
+    Mobile Interfaces and Usability
+    Monica Peters
+    Web App Project 4 Week 4
+    A
+    Due Thursday March 22nd 2012
+    styles.css
+*/
+
+/*
+	project type icons are 35 x 35
+	project screenshots are 75 x 75
+	Vertical Stack Design Concept
+	with JQuery Mobile
+	Feature: top center
+	Search:  middle top center
+	Browse:  center bottom
+*/
+
+body {
+	background-image:url('../images/deep_backgrounds/grid_bg.png');
+}
+
+a:link {
+	text-decoration: none;
+}
+
+label.error{
+	/*default is inline*/
+	display: block;
+	margin: 10px 0;
+	color: #ff6600;
+}
+
+li {
+	list-style-type: none;
+	margin: 3px 0;
+}
+
+button#submit {
+	display: inline;
+	text-align: left;
+	width: 55px;
+	height: 25px;
+	margin: 3px 3px 3px 3px;
+}
+
+/*a#clear {
+	display: inline;
+	text-align: center;
+	font-size: 17px;
+	font-variant: small-caps;
+	font-weight: bold;
+	width: 100%;
+	color: #ff9933;
+	margin: 13px 13px 13px 13px;
+}
+*/
+
+.ui-body {
+	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
+}
+
+.ui-page {
+    background-image: url("../images/deep_backgrounds/grid_bg.png");
+}
+
+.ui-icon-showoff-home {
+	background-image: url("home.png");
+}
+
+.ui-icon-showoff-info {
+	background-image: url("info.png");	
+}
+
+.ui-icon-showoff-add {
+	background-image: url("add.png");	
+}
+
+.ui-icon-showoff-search {
+	background-image: url("search.png");	
+}
+
+.ui-icon-showoff-browse {
+	background-image: url("browse.png");	
+}
+
+.ui-icon-showoff-news {
+	background-image: url("news.png");	
+}
+
+.ui-icon-showoff-edit {
+	background-image: url("edit.png");	
+}
+
+.ui-icon-showoff-delete {
+	background-image: url("delete.png");	
+}
