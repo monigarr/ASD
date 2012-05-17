@@ -456,7 +456,7 @@ $(document).ready(function()
 					var url = $(this).find('url').text();
 					$('<div class="items" id="link_'+id+'"></div>')
 						.html('<a href="'+url+'">'+title+'</a>')
-						.appendTo('#page-wrap');
+						.appendTo('#xmldata');
 					$(this).find('desc').each(function(){
 						var brief = $(this).find('brief').text();
 						var long = $(this).find('long').text();

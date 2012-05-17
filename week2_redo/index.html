@@ -92,7 +92,8 @@
 							</div>
 						</div>
 					</div>
-				<div id="data"></div>
+				
+				<ul id="data" data-role="listview" data-theme="d"></ul>
 			</center>
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
@@ -465,7 +466,7 @@
 		//Load JSON DATA
 		$('#jsondata').bind('click', function(){
 			$('#data').empty();
-			$('<p>').html('Load JSON Data').appendTo('#data');
+			$('<h3>').html('JSON Data Loaded').appendTo('#data');
 			$.ajax({
 				url: 'xhr/data.json',
 				type: 'GET',
@@ -474,10 +475,10 @@
 					for (var i=0, j=answer.item.length; i<j; i++){
 						var jdata = answer.item[i];
 						$(''+
-							'<div class="datainfo">'+
-								'<p>Name: '+ jdata.name +'</p>'+
-								'<p>Comments: '+ jdata.comments +'</p>'+
-							'</div>'
+							'<li>'+ 
+								jdata.name +'<br />'+
+								jdata.comments +'<br /><br />'+
+							'</li>'
 						).appendTo('#data');
 						console.log(answer);
 					}
