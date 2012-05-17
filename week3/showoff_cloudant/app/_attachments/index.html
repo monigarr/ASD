@@ -26,7 +26,7 @@
   </head>
   <body>
 	<div data-role="page" id="home" data-theme="d" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed">
+		<div data-role="header">
 			<h1><a href="#home">ShowOff!</a></h1>
 			<small><center>asd week 3 cloudant</center></small>				
 		</div><!--/header-->
@@ -37,8 +37,8 @@
 				<section id="feature">
 					<a href="#newest"><img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" /></a>
 				</section><!--/feature-->
-				<a href="#newest" id="newest" rel="internal" data-ajax="false" data-inline="true" data-icon="star" data-role="button" data-add-back-btn="true" data-theme="b" />What's New</a><br />
 				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" data-theme="b" />Add New</a><br />
+				<a href="#browse" rel="external" data-inline="true" data-icon="grid" data-role="button" data-add-back-btn="true">School Projects</a><br /><br />
 				<a href="#clear" id="clear" rel="internal" data-ajax="false" data-inline="true" data-rel="dialog" data-add-back-btn="true" />delete all</a>
 			</center>
 		</div><!--/content-->
@@ -46,7 +46,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
@@ -147,7 +147,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
@@ -191,7 +191,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
@@ -206,16 +206,16 @@
 				<small><center>Show off your projects.</center></small>	
 		</div><!--/header-->
 		<div data-role="content">
+			<h3>School Projects</h3>
 			<section id="browse">
-				<h3>browse projects</h3>
-					<ul id="projectlist" data-role="listview"></ul>
+					<ul id="schoolprojectlist" data-role="listview" data-filter="true"></ul>
 			</section>
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
@@ -224,6 +224,30 @@
 		</div><!--/footer-->
 	</div><!--/page /browse-->
 	
+		<div data-role="page" id="search" data-theme="d" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
+				<small><center>Show off your projects.</center></small>	
+		</div><!--/header-->
+		<div data-role="content">
+			<h3>Search All Projects</h3>
+			<section id="search">
+					<ul id="projectlist" data-role="listview" data-filter="true"></ul>
+			</section>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
+					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
+				</ul>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /browse-->
+		
 	<div data-role="page" id="newest" data-theme="d" data-add-back-btn="true">
 		<div data-role="header" data-position="fixed">
 				<h1><a href="#home" class="logoAlign">ShowOff!</a></h1>
@@ -341,7 +365,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#browse" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>
@@ -377,7 +401,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><a href="#home" id="home" class="ui-btn-active" rel="internal" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="#items" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="#search" id="displayLink" rel="internal" data-icon="search" data-add-back-btn="true" />Search</a></li>
 					<li><a href="#browse" id="browse" rel="internal" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
 					<li><a href="#contact"  id="contact" rel="internal" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
 					<li><a href="#info" id="info" rel="internal" data-icon="info" data-add-back-btn="true" />Info</a></li>

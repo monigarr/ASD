@@ -19,7 +19,7 @@
 */
 
 body {
-	background-image:url('../images/deep_backgrounds/grid_bg.png');
+	background-image:url("grid_bg.png");
 }
 
 a:link {
@@ -59,11 +59,11 @@ button#submit {
 */
 
 .ui-body {
-	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
+	/*background-image: url("grid_bg.png");*/
 }
 
 .ui-page {
-    background-image: url("../images/deep_backgrounds/grid_bg.png");
+    background-image: url("grid_bg.png");
 }
 
 .ui-icon-showoff-home {
