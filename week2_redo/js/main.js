@@ -128,10 +128,8 @@ $(document).ready(function()
 			
 			var newImg = $('img')
 				.attr("src", "images/" + mediaType + ".jpg")
-				.attr('class', 'projectIconAlign');
-				.append('#imageLi' + key);
-			
-			
+				.attr("class", "projectIconAlign")
+				.append("#imageLi" + key);	
 		}
 		
 		//Get graphic url for project.
@@ -384,28 +382,93 @@ $(document).ready(function()
 				alert("Project Saved");
 		}
 		
-		$.get("data.xml", function(d)
-			{
-				$("body".append("<h2>Projects</h2>");
-				$("body").append("dl />");
-				$(d).find("item").each(function()
-				{
-					var $item = $(this);
-					var type = $item.attr("type");
-					var name = $item.find("name").text();
-					var comments = $item.find("comments").text();
-					var imageurl = $item.attr("graphic");
-					var html = '<dt><img class="projectImage" alt="" src="' + graphic + '" /></dt>';
-					html += '<dd><span class="loadingPic" alt="Loading" />';
-					html += '<p class="type">' + type + '</p>';
-					html += '<p>' + name + '</p>';
-					html += '<p>' + comments + '</p>';
-					html += '</dd>';
-					$("dl").append($(html));
-				});
-			});
-		});
 
+	//Load JSON DATA
+	$('#jsondata').bind('click', function(){
+		$('#data').empty();
+		$('<p>').html('JSON Data Imported').appendTo('#data');
+		$.ajax({
+			url: 'xhr/data.json',
+			type: 'GET',
+			dataType: 'json',
+			success: function(answer){
+	        	for (var i=0, j=answer.item.length; i<j; i++){
+					var jdata = answer.item[i];
+					$(''+
+						'<div class="datainfo">'+
+							'<p>Name: '+ jdata.name +'</p>'+
+							'<p>Comments: '+ jdata.comments +'</p>'+
+						'</div>'
+					).appendTo('#data');
+					console.log(answer);
+				}
+			}
+		});
+		return false;
+	});
+
+
+	//Load CSV
+	$('#csvdata').on('click', function(){
+		$('#data').empty();
+		$('<p>').html('CSV Data Imported').appendTo('#data');
+		 $.ajax({
+	        type: "GET",
+	        url: "xhr/data.txt",
+	        dataType: "text",
+	        success: function(data) {
+	        	var allInfo = data.split(/\r\n|\n/);
+	    		var headers = allInfo[0].split(',');
+	    		var info = []; 
+	
+				for (var i=1; i<allInfo.length; i++) {
+					var data = allInfo[i].split(',');
+					if (data.length == headers.length) {
+						var forminfo = []; 
+						for (var j=0; j<headers.length; j++) {
+							forminfo.push(data[j]); 
+						}
+						info.push(forminfo); 
+					}
+				}
+				for (var m=0; m<info.length; m++){
+					var adata = info[m];
+				$(''+
+						'<div class="datainfo">'+
+							'<p>Name: '+ adata[2] +'</p>'+
+							'<p>Comments:'+ adata[3] +'</p>'+
+							'<p>Incentive: '+ adata[4] +'</p>'+
+						'</div>'
+					).appendTo('#loaddata');
+				console.log(info);	
+				}
+	        }
+		});
+		return false;
+	});
+		//LOAD XML JSON
+		$.ajax({
+			type: "GET",
+			url: "xhr/data.xml",
+			dataType: "xml",
+			success: function(xml) {
+				$(xml).find('site').each(function(){
+					var id = $(this).attr('id');
+					var title = $(this).find('title').text();
+					var url = $(this).find('url').text();
+					$('<div class="items" id="link_'+id+'"></div>')
+						.html('<a href="'+url+'">'+title+'</a>')
+						.appendTo('#page-wrap');
+					$(this).find('desc').each(function(){
+						var brief = $(this).find('brief').text();
+						var long = $(this).find('long').text();
+						$('<div class="brief"></div>').html(brief).appendTo('#link_'+id);
+						$('<div class="long"></div>').html(long).appendTo('#link_'+id);
+					});
+				});
+			}
+		});
+		
 		var getData = function()
 		{
 			

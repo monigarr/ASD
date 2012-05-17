@@ -89,9 +89,27 @@
 		
 		</script>
 	</head>
-	<body>
-
-
+	<div data-role="page" id="jsondata" data-theme="d" data-add-back-btn="true">
+		<div data-role="header">
+			<h1><a href="#home">ShowOff!</a></h1>
+		</div><!--/header-->
+		<div data-role="content">
+			<div id="data">
+				<h1>Reading CSV with jQuery</h1>
+			</div>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" id="home" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="index.html#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="index.html#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
+					<li><a href="index.html#contact"  id="contact" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="index.html#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
+				</ul>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /jsondata-->
 
 	<!--jquery and jquery mobile-->
 	<!--note that order of js is important below-->
@@ -99,15 +117,9 @@
 	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
 	
 	<!--plugins-->
-	<script src="js/libs/jquery.validate.min.js"></script>
-	<script src="jQuery.ui.datepicker.js"></script>
-	<script src="jquery.ui.datepicker.mobile.js"></script>
-
+	
 	<!--custom js-->	
-	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="xhr/data.json"></script>
-	<script type="text/javascript" src="data.xml"></script>
-	<script type="text/javascript" src="xhr/data.csv"></script>
+	<script type="text/javascript" src="xhr/data.txt"></script>
 	</body>
 </html>
