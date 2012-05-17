@@ -127,7 +127,6 @@ $(document).ready(function()
 			
 			var newImg = $('img')
 				.attr("src", "images/" + mediaType + ".jpg")
-				.attr("class", "projectIconAlign")
 				.append("#imageLi" + key);	
 		}
 		
