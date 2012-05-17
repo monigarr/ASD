@@ -81,7 +81,7 @@
 							<div class="ui-grid-b">
 								<p style="text-align: center;"><h2>Load Test Data</h2></p>
 								<div class="ui-block-b">
-									<a href="json.html" data-role="button" id="jsondata">JSON</a>
+									<a href="#" data-role="button" id="jsondata">JSON</a>
 								</div>
 		
 								<div class="ui-block-c">
@@ -89,12 +89,12 @@
 								</div>
 		
 								<div class="ui-block-c">							
-									<a href="loadcsv.html" data-role="button" id="csvdata">CSV</a>
+									<a href="csv.html" rel="external" data-role="button">CSV</a>
 								</div>
 							</div>
 						</div>
 					</div>
-				<div id="loaddata"></div>
+				<div id="data"></div>
 			</center>
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
@@ -463,8 +463,33 @@
 	<!--custom js-->	
 	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="xhr/data.json"></script>
-	<script type="text/javascript" src="data.xml"></script>
-	<script type="text/javascript" src="xhr/data.csv"></script>
+	<script type="text/javascript">
+	$(document).ready(function()
+	{
+		//Load JSON DATA
+		$('#jsondata').bind('click', function(){
+			$('#data').empty();
+			$('<p>').html('Load JSON Data').appendTo('#data');
+			$.ajax({
+				url: 'xhr/data.json',
+				type: 'GET',
+				dataType: 'json',
+				success: function(answer){
+					for (var i=0, j=answer.item.length; i<j; i++){
+						var jdata = answer.item[i];
+						$(''+
+							'<div class="datainfo">'+
+								'<p>Name: '+ jdata.name +'</p>'+
+								'<p>Comments: '+ jdata.comments +'</p>'+
+							'</div>'
+						).appendTo('#data');
+						console.log(answer);
+					}
+				}
+			});
+			return false;
+		});
+	</script>	
+
 	</body>
 </html>

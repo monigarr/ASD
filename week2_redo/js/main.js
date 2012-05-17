@@ -33,7 +33,6 @@ $(document).ready(function()
 	// Var Defaults
 	var projectType = ["-- Choose Project Type--", "ios", "android", "html5", "wordpress", "graphic", "author"],mtopicValue;
 		errMsg = $("errors");
-		projectId = getUrlVars()["projectId"];
 		projectForm = $("projectForm");
 		displayLink = $("displayLink");
 		clearLink = $("clear");
@@ -45,14 +44,14 @@ $(document).ready(function()
 		displayAuthorLink = $("displayAuthorLink");
 		save = $("submit");
 		
-		displayLink.on("click", getProjectJSON);
+		//displayLink.on("click", getProjectJSON);
 		clearLink.on("click", clearLocal);
-		displayIOSLink.on("click", getProjectJSON);
-		displayAndroidLink.on("click", getProjectJSON);
-		displayHtml5Link.on("click", getProjectJSON);
-		displayWordpressLink.on("click", getProjectJSON);
-		displayGraphicLink.on("click", getProjectJSON);
-		displayAuthorLink.on("click", getProjectJSON);
+		//displayIOSLink.on("click", getProjectJSON);
+		//displayAndroidLink.on("click", getProjectJSON);
+		//displayHtml5Link.on("click", getProjectJSON);
+		//displayWordpressLink.on("click", getProjectJSON);
+		//displayGraphicLink.on("click", getProjectJSON);
+		//displayAuthorLink.on("click", getProjectJSON);
 		save.on("click", saveProject);
 		//save.on("click", validate);
 		
@@ -410,8 +409,8 @@ $(document).ready(function()
 
 	//Load CSV
 	$('#csvdata').on('click', function(){
-		$('#data').empty();
-		$('<p>').html('CSV Data Imported').appendTo('#data');
+		$('#csvdata').empty();
+		$('<p>').html('CSV Data Imported').appendTo('#csvdata');
 		 $.ajax({
 	        type: "GET",
 	        url: "xhr/data.txt",
@@ -439,7 +438,7 @@ $(document).ready(function()
 							'<p>Comments:'+ adata[3] +'</p>'+
 							'<p>Incentive: '+ adata[4] +'</p>'+
 						'</div>'
-					).appendTo('#loaddata');
+					).appendTo('#csvdata');
 				console.log(info);	
 				}
 	        }

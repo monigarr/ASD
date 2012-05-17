@@ -6,9 +6,9 @@
 			"date": ["Date:", "2012-30-01"],
 			"rating": ["Rating:", "8"],
 			"incentive": ["incentive:", "All"],
-			"tags": ["Tags:", "red delicious"],
+			"tags": ["Tags:", "one"],
 			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
-			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+			"comments": ["Comments:","android project one."]
 		},
 		{
 			"type": ["Type:", "android"],
@@ -16,9 +16,9 @@
 			"date": ["Date:", "2012-30-01"],
 			"rating": ["Rating:", "8"],
 			"incentive": ["incentive:", "All"],
-			"tags": ["Tags:", "red delicious"],
+			"tags": ["Tags:", "two"],
 			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
-			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+			"comments": ["Comments:","android project two"]
 		},
 		{
 			"type": ["Type:", "android"],
@@ -26,9 +26,9 @@
 			"date": ["Date:", "2012-30-01"],
 			"rating": ["Rating:", "8"],
 			"incentive": ["incentive:", "All"],
-			"tags": ["Tags:", "red delicious"],
+			"tags": ["Tags:", "three"],
 			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
-			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+			"comments": ["Comments:","android project three"]
 		},
 		{
 			"type": ["Type:", "android"],
@@ -36,9 +36,9 @@
 			"date": ["Date:", "2012-30-01"],
 			"rating": ["Rating:", "8"],
 			"incentive": ["incentive:", "All"],
-			"tags": ["Tags:", "red delicious"],
+			"tags": ["Tags:", "four"],
 			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
-			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+			"comments": ["Comments:","android project four"]
 		},
 		{
 			"type": ["Type:", "android"],
@@ -46,9 +46,9 @@
 			"date": ["Date:", "2012-30-01"],
 			"rating": ["Rating:", "8"],
 			"incentive": ["incentive:", "All"],
-			"tags": ["Tags:", "red delicious"],
+			"tags": ["Tags:", "five"],
 			"graphic": ["Image:", "http://aamb.ca/wp-content/uploads/aamb1.jpg"],
-			"comments": ["Comments:","Red Delicious organic, local, fresh."]
+			"comments": ["Comments:","android project five."]
 		}
 	]
 }

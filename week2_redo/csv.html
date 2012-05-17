@@ -49,8 +49,6 @@
 		<meta http-equiv="cleartype" content="on">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
 			
-		<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
-		
 		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
 		<script src="js/libs/modernizr.custom.min.js"></script>
 		
@@ -58,54 +56,23 @@
 		<!-- call custom style sheets last when using jqmobile -->
 		<link rel="stylesheet" href="css/styles.css" />
 		
-		<script>
-		$(document).ready(function() {
-			$.ajax({
-				type: "GET",
-				url: "xhr/data.txt",
-				dataType: "text",
-				success: function(data) {processData(data);}
-			 });
-		});
-		
-		function processData(allText) {
-			var allTextLines = allText.split(/\r\n|\n/);
-			var headers = allTextLines[0].split(',');
-			var lines = [];
-		
-			for (var i=1; i<allTextLines.length; i++) {
-				var data = allTextLines[i].split(',');
-				if (data.length == headers.length) {
-		
-					var tarr = [];
-					for (var j=0; j<headers.length; j++) {
-						tarr.push(headers[j]+":"+data[j]);
-					}
-					lines.push(tarr);
-				}
-			}
-			// alert(lines);
-		}
-		
-		</script>
 	</head>
 	<div data-role="page" id="jsondata" data-theme="d" data-add-back-btn="true">
 		<div data-role="header">
 			<h1><a href="#home">ShowOff!</a></h1>
 		</div><!--/header-->
 		<div data-role="content">
-			<div id="data">
 				<h1>Reading CSV with jQuery</h1>
-			</div>
+			<ul id="csvdata" data-role="listview"></ul>
 		</div><!--/content-->
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="index.html" id="home" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
-					<li><a href="index.html#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
-					<li><a href="index.html#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
-					<li><a href="index.html#contact"  id="contact" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
-					<li><a href="index.html#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
+					<li><a href="index.html" id="home" class="ui-btn-active" rel="external" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="index.html#items" id="displayLink" rel="external" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="index.html#browse" id="browse" rel="external" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
+					<li><a href="index.html#contact"  id="contact" rel="external" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="index.html#info" id="info" rel="external" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
 				</ul>
 			</div><!--/navbar-->
 		</div><!--/footer-->
@@ -119,7 +86,45 @@
 	<!--plugins-->
 	
 	<!--custom js-->	
+	<script type="text/javascript" src="js/json.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="xhr/data.txt"></script>
+	
+			<script type="text/javascript">
+     	$(document).ready(function(){
+		 $.ajax({
+			type: "GET",
+			url: "xhr/data.csv",
+			dataType: "text",
+			success: function(data) {
+				var allInfo = data.split(/\r\n|\n/);
+				var headers = allInfo[0].split(',');
+				var info = []; 
+	
+				for (var i=1; i<allInfo.length; i++) {
+					var data = allInfo[i].split(',');
+					if (data.length == headers.length) {
+						var forminfo = []; 
+						for (var j=0; j<headers.length; j++) {
+							forminfo.push(data[j]); 
+						}
+						info.push(forminfo); 
+					}
+				}
+				
+				for (var m=0; m<info.length; m++){
+					var adata = info[m];
+				$('<li>'+
+							'Name: '+ adata[0] +
+							'Tags:'+ adata[1] +
+							'Comments: '+ adata[2] +
+						'</li>'
+					).appendTo('#csvdata');
+				console.log(info);	
+				}
+			}
+		});
+	});
+		</script>	
+		
 	</body>
 </html>
