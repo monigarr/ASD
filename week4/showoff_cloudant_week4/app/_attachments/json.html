@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>ShowOff! A</title>
+		<meta type="charset" content = "utf-8" />
+		<meta type="robots" content="index,follow" />
+		<meta type="description" content="Manage your personal media library" />
+		<meta type="keywords" content = "media library, add media, monica peters, vfw" />
+		
+		<!--Custom font for logo -->
+		<link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+			
+		<link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
+		
+		<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+		<script src="js/libs/modernizr.custom.min.js"></script>
+		
+		<!-- Monica's custom style sheet-->
+		<!-- call custom style sheets last when using jqmobile -->
+		<link rel="stylesheet" href="styles.css" />
+		
+		<!--tutorial: http://webhole.net/2009/11/28/how-to-read-json-with-javascript/ -->
+		
+		<script type="text/javascript">
+		$(document).ready(function(){
+		var url='http://search.twitter.com/search.json?callback=?&q=';
+		var query;
+			$('button').click(function(){
+				query=$("#query").val();
+				$.getJSON(url+query,function(json){
+					$.each(json.results,function(i,tweet){
+					   $("#results").append('<p><img src="'+tweet.profile_image_url+'" widt="48" height="48" />'+tweet.text+'</p>');
+					});
+				});
+			});
+		});
+		</script>
+
+	</head>
+	<body>
+	<div data-role="page" id="jsondata" data-theme="d" data-add-back-btn="true">
+		<div data-role="header">
+			<h1><a href="#home">ShowOff!</a></h1>
+		</div><!--/header-->
+		<div data-role="content">
+		<center>
+			<input type="text" id="query" value="full sail university" /><button>search</button><br />
+			<h3>JSON DATA from Twitter</h3>
+		</center>
+			<div id="results"></div>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" id="home" class="ui-btn-active" rel="internal" data-ajax="false" data-inline="true" data-icon="home" data-add-back-btn="true" />Home</a></li>
+					<li><a href="index.html#items" id="displayLink" rel="internal" data-ajax="false" data-inline="true" data-icon="search" data-add-back-btn="true" />Search</a></li>
+					<li><a href="index.html#browse" id="browse" rel="internal" data-ajax="false" data-inline="true" data-icon="check" data-add-back-btn="true" />Browse</a></li>					
+					<li><a href="index.html#contact"  id="contact" rel="internal" data-ajax="false" data-inline="true" data-icon="grid" data-add-back-btn="true" />Contact</a></li>
+					<li><a href="index.html#info" id="info" rel="internal" data-ajax="false" data-inline="true" data-icon="info" data-add-back-btn="true" />Info</a></li>
+				</ul>
+			</div><!--/navbar-->
+		</div><!--/footer-->
+	</div><!--/page /jsondata-->
+	<!--jquery and jquery mobile-->
+	<!--note that order of js is important below-->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+	
+	<!--plugins-->
+
+	<!--custom js-->	
+
+	</body>
+</html>

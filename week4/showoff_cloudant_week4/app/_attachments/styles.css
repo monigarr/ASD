@@ -19,7 +19,7 @@
 */
 
 body {
-	background-image:url("grid_bg.png");
+	background-image:url('../images/deep_backgrounds/grid_bg.png');
 }
 
 a:link {
@@ -31,6 +31,11 @@ label.error{
 	display: block;
 	margin: 10px 0;
 	color: #ff6600;
+}
+
+h1 {
+	text-align:center;
+	font-size: 18px;
 }
 
 li {
@@ -59,11 +64,11 @@ button#submit {
 */
 
 .ui-body {
-	/*background-image: url("grid_bg.png");*/
+	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
 }
 
 .ui-page {
-    background-image: url("grid_bg.png");
+    background-image: url("../images/deep_backgrounds/grid_bg.png");
 }
 
 .ui-icon-showoff-home {

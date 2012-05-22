@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+ <sites>
+   <site id="0">
+     <title>Talk Mohawk</title>
+	<url>http://www.talkmohawk.com</url>
+     <desc>
+       <brief>brief description.</brief>
+       <long>the long description.</long>
+     </desc>
+   </site>
+   <site id="2">
+     <title>Web Developer for Hire</title>
+	<url>http://www.monicalamb.com</url>
+     <desc>
+       <brief>brief description.</brief>
+       <long>the long description.</long>
+     </desc>
+   </site>
+   <site id="3">
+     <title>Seaway WebSites</title>
+	<url>http://www.seawaywebsites.com</url>
+     <desc>
+       <brief>brief description.</brief>
+       <long>.the long description. </long>
+     </desc>
+   </site>
+    <site id="4">
+     <title>Marlana Thompson</title>
+	<url>http://www.marlanathompson.com</url>
+     <desc>
+       <brief>brief description.</brief>
+       <long>the long description. </long>
+     </desc>
+   </site>   
+   <site id="5">
+     <title>Fullers Veggies</title>
+	<url>http://www.fullersveggies.com</url>
+     <desc>
+       <brief>brief description.</brief>
+       <long>.the long description. </long>
+     </desc>
+   </site>  
+ </sites>
+ 

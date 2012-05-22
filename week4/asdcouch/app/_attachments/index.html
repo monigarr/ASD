@@ -1,0 +1,64 @@
+<html>
+  <head>
+  	<meta charset="utf-8">
+    <title>My New CouchApp</title>
+		
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+ 		
+		<!-- JavaScript is normally at the end of the body, 
+		except for Modernizr which enables HTML5 elements & feature detects -->
+		<script type="text/javascript" src="modernizr.custom.min.js"></script>
+		
+		<!-- call custom style sheets last when using jquery mobile -->
+		<link rel="stylesheet" href="styles.css" /> 
+  <body>
+    <div data-role="page" id="home">
+    	<div data-role="header" data-position="fixed">
+    		<h1>Home</h1>
+    	</div>
+    	<div data-role="content">
+    		<ul id="homeItems" data-role="listview"></ul>
+    	</div>
+    </div><!--/page /home-->
+    
+    <div data-role="page" id="additem">
+    	<div data-role="header" data-position="fixed"></div>
+    	<div data-role="content">
+			<form>
+			<h4>Add Project</h4>
+    			<p>
+    				<label>Project Name:</label>
+    				<input type="text" name="name" id="name" />
+    			</p>
+   				<p>
+    				<label>Tag:</label>
+    				<input type="text" name="tag" id="tag" />
+    			</p>
+   				<p>
+    				<label>Comments:</label>
+    				<input type="text" name="comment" id="comment" />
+    			</p>
+			</form>
+    	</div><!--/content-->
+    	<div data-role="footer"></div>
+    </div><!--/page /additem-->
+    
+    	<!--jquery and jquery mobile-->
+	<!--order of js is important below-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="jquery.couch.js"></script>
+	
+	<!--plugins-->
+	
+	<!--custom js-->
+	<script type="text/javascript" src="main.js"></script>
+   </body>
+</html>

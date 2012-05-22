@@ -19,13 +19,46 @@
 */
 
 body {
-	background-image:url("grid_bg.png");
+	background-image:url('../images/deep_backgrounds/grid_bg.png');
 }
 
 a:link {
 	text-decoration: none;
 }
 
+.projectImage {
+	clear: left;
+	width: 150px;
+}
+
+/* start tutorial */
+	#page-wrap{
+		padding-top:20px;
+		padding-left:20px;
+		}
+		h1{
+			margin-bottom:10px;
+		}
+		.items a,.items a:active,.items a:link,.items a:visited{
+		font-size:1.2em;
+			color:#3300CC;
+			text-decoration:underline;
+			display:block;
+			margin-top:10px;
+		}
+		.items a:hover{
+			text-decoration:none;	
+		}
+		.brief{
+			font-size:0.8em;
+			padding-left:10px;
+		}
+		.long{
+			font-size:0.8em;
+			padding-left:10px;
+		}
+
+/* stop tutorial */
 label.error{
 	/*default is inline*/
 	display: block;
@@ -59,11 +92,11 @@ button#submit {
 */
 
 .ui-body {
-	/*background-image: url("grid_bg.png");*/
+	/*background-image: url("../images/deep_backgrounds/grid_bg.png");*/
 }
 
 .ui-page {
-    background-image: url("grid_bg.png");
+    background-image: url("../images/deep_backgrounds/grid_bg.png");
 }
 
 .ui-icon-showoff-home {

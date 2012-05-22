@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/showoff_cloudant_week4"
+    },
+    "cloudant": {
+      "db": "http://monigarr:agent007@monigarr.cloudant.com/showoff_cloudant_week4"
+    }
+  }
+}

@@ -1,0 +1,287 @@
+<html>
+  <head>
+    <title>ShowOff! version cloudant week 4</title>
+
+  		<!--[if lt IE 9]>
+			<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		
+		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- Mobile IE needs ClearType for smoothing fonts -->
+		<meta http-equiv="cleartype" content="on">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+ 		
+		<!-- JavaScript is normally at the end of the body, 
+		except for Modernizr which enables HTML5 elements & feature detects -->
+		<script type="text/javascript" src="modernizr.custom.min.js"></script>
+		
+		<!-- call custom style sheets last when using jquery mobile -->
+		<link rel="stylesheet" type="text/css" href="styles.css" /> 
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		
+  </head>
+  <body>
+	<div data-role="page" id="home" data-theme="d" data-add-back-btn="true" tabindex="0">
+		<div data-role="header" id="logo"></div><!--/header-->
+		<div data-role="content">	
+			<center>
+				<section id="feature">
+					<a href="#newest"><img src="feature_image_with_cta_wow_yay.png" width="120px" height="126px" border="0" /></a>
+				</section><!--/feature-->
+				<a href="#additem" id="addNew" rel="internal" data-ajax="false" data-inline="true" data-icon="plus" data-role="button" data-add-back-btn="true" data-theme="b" />Add New</a><br />
+				<a href="#browse" rel="external" data-inline="true" data-icon="grid" data-role="button" data-add-back-btn="true">School Projects</a><br /><br />
+				<a href="#clear" id="clear" rel="internal" data-ajax="false" data-inline="true" data-rel="dialog" data-add-back-btn="true" />delete all</a>
+			</center>
+			
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page /home-->
+	
+	<div data-role="page" id="additem" data-theme="d" data-add-back-btn="true" tabindex="1">
+		<div data-role="header" data-position="fixed" id="logo"></div><!--/header-->
+		<div data-role="content">
+			<section id="addNew">
+				<center><h2>Add New Project</h2></center>
+			</section><!--/addNew-->
+			<section id="errors"></section><!--/errors-->
+			<form action="#feature" method="post" id="projectForm">
+					<fieldset id="mediaFieldSet">
+						<center><span><small>* fields required.</small><br /></span></center>
+							<ul id="media">
+								<div data-role="fieldcontain">
+									<li id="name">
+										<label for="name">* Project Name: </label>
+										<input type="text" id="name" class="required" value="Short description" />
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="tags">
+										<label for="tags">Project Tags:</label>
+										<input type="text" id="tags" value="Keywords separated by a space." />
+									</li>
+								</div>
+								<div data-role="fieldcontain">
+									<li id="comments">
+										<label for="comments">Project Case Study Notes:</label>
+										<textarea id="comments" value="Outcomes, Deliverables, Expectations" />Project details will be here.</textarea>
+									</li>
+								</div>
+							</ul><!--/media-->
+							<div data-role="fieldcontain">
+								<input type="submit" data-theme="e" value="Save Project" id="submit" data-mini="true" align="left" />
+							    <input type="reset" data-theme="C" value="reset" /> 
+							</div><!--/fieldcontain submit-->
+					</fieldset><!--/mediaFieldSet-->
+				</form>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed"></div><!--/footer-->
+	</div><!--/page /additem-->
+	
+	<div data-role="page" id="contact" data-theme="d" data-add-back-btn="true" tabindex="2">
+		<div data-role="header" data-position="fixed" id="logo"></div><!--/header-->
+		<div data-role="content">
+			<section id="newStream">
+				<h2>Contact</h2>
+					<ul data-role="listview" data-inset="true">
+						<li>
+							<a href="http://www.monicalamb.com/blog3/contact/">
+								<p>
+								Monica Peters<br/>
+								Developer for Hire<br/>
+								Akwesasne NY 13655<br/>  
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="http://www.FullSail.edu">
+								<p>
+								Full Sail University<br/>
+								Online Mobile Development Course.<br/>
+								</p>
+							</a>
+						</li>
+					</ul>
+
+			
+			</section>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page /contact-->
+	
+	<div data-role="page" id="browse" data-theme="d" data-add-back-btn="true" tabindex="3">
+		<div data-role="header" data-position="fixed" id="logo"></div><!--/header-->
+		<div data-role="content">
+			<h3>School Projects</h3>
+			<section id="browse">
+					<ul id="schoolprojectlist" data-role="listview" data-filter="true"></ul>
+			</section>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page /browse-->
+	
+		<div data-role="page" id="search" data-theme="d" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed"></div><!--/header-->
+		<div data-role="content">
+			<h3>Search All Projects</h3>
+    			<ul id="items" data-role="listview"></ul>
+			<section id="search">
+					<ul id="projectlist" data-role="listview" data-filter="true"></ul>
+			</section>
+		</div><!--/content-->
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page /browse-->
+		
+	<div data-role="page" id="newest" data-theme="d" data-add-back-btn="true" tabindex="4">
+		<div data-role="header" data-position="fixed" id="logo"></div>
+		<div data-role="content">
+			<section id="newStream">
+				<center>
+				<h2>Newest Projects</h2>
+					<!--ONE WINDOW DRILLDOWN -->				
+					<ul data-role="listview" data-theme="d" data-inset="true" data-back-btn="true">
+						<!--THUMBNAIL GRID-->
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+								<li>
+									<img width="75px" height="75px" src="http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg" />
+										<ul data-role="listview" data-theme="d" data-inset="true">
+											<li>
+												<a href="http://www.marlanathompson.com">
+												<img width="75px" height="75px" src="http://www.marlanathompson.com/wp-content/uploads/2010/01/OC-Logo-Wolf.jpg" />
+												<h3>MarlanaThompson.com</h3>
+												<p class="ui-li-aside"><strong>3/1/2010</strong></p>
+												<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+												</a>
+											</li>
+										</ul>
+								</li>
+							</div>
+							<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/Screen-shot-2012-04-21-at-1.43.03-PM-630x332.png" />
+									<ul data-role="listview" data-theme="d" data-inset="true">
+										<li>
+											<a href="http://www.aamb.ca">
+											<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/Screen-shot-2012-04-21-at-1.43.03-PM-630x332.png" />
+											<h3>aamb.ca</h3>
+											<p class="ui-li-aside"><strong>2/1/2010</strong></p>
+											<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+											</a>
+										</li>
+									</ul>
+							</li>
+						</div>
+						</div>	
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+							<li>
+								<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/Screen-shot-2012-04-21-at-1.43.03-PM-630x332.png" />
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.ceciliathompsonart.com">
+										<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/Screen-shot-2012-04-21-at-1.43.03-PM-630x332.png" />
+										<h3>CeciliaThompsonArt.com</h3>
+										<p class="ui-li-aside"><strong>1/1/2010</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg" />
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.seawaywebsites.com">
+										<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg" />
+										<h3>SeawayWebSites.com</h3>
+										<p class="ui-li-aside"><strong>1/1/2006</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						</div>	
+						<div class="ui-grid-a">
+							<div class="ui-block-a">
+							<li>	
+								<img width="75" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg"/>
+								<ul data-role="listview" data-theme="d" data-inset="true">
+									<li>
+										<a href="http://www.MonicaLamb.com/blog3">
+										<img width="75" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg"/>
+										<h3>Endangered Language ChatBot</h3>
+										<p class="ui-li-aside"><strong>1/1/1997</strong></p>
+										<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+						</div>
+						
+						<div class="ui-block-b">
+							<li>
+								<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg" />
+									<ul data-role="listview" data-theme="d" data-inset="true">
+										<li>
+											<a href="http://www.monicalamb.com/blog3">
+											<img width="75px" height="75px" src="http://www.monicalamb.com/blog3/wp-content/uploads/2012/04/feature_image_with_cta.jpg" />
+											<h3>MonicaLamb.com</h3>
+											<p class="ui-li-aside"><strong>1/1/1996</strong></p>
+											<p>Wordpress website I installed, customized, and hosted for small business client.</p>
+											</a>
+										</li>
+									</ul>
+							</li>
+						</div>
+					</div>
+					</ul><!--/ONE WINDOW DRILLDOWN-->
+				</center>
+			</section><!--/news stream-->
+		</div>
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page newest-->
+	
+	<div data-role="page" id="info" data-theme="d" data-add-back-btn="true" tabindex="5"> 
+		<div data-role="header" data-position="fixed" id="logo"></div>
+		<div data-role="content">
+			<p>
+			<center>
+				<a href="https://github.com/monigarr/mdv-projects/tree/master/ASD/week4/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">Show Off! ASD Code</a><br/>
+				<a href="http://monigarr.github.com/mdv-projects/ASD/week4/" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">Show Off! ASD GitHub Live</a>
+				<a href="https://monigarr.cloudant.com/showoff_cloudant_week4/_design/app/index.html" rel="external" data-ajax="false" data-role="button" data-mini="true" data-icon="star" data-inline="true" data-theme="e">Show Off! Cloudant Live</a>				
+				<br/><br/>
+				<address>
+				Monica Peters.<br/>
+				<strong>ShowOff! ASD</strong><br/><br/>
+				Full Sail University<br/>
+				Advanced Scalable Data Infrastructures (ASD) Course.<br/>
+				Week 4 Project 4<br/>
+				due May 24th 2012<br/><br/>
+				</address>
+			</center>
+			</p>
+		</div>
+		<div data-role="footer" data-position="fixed" id="navigate_footer"></div><!--/footer-->
+	</div><!--/page /info-->
+
+    
+    <!--jquery and jquery mobile-->
+	<!--order of js is important below-->
+	<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	-->
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+	<script src="jquery.couch.js"></script>
+
+	<!--plugins-->
+	
+	<!--custom js-->
+	<script type="text/javascript" src="main.js"></script>
+   </body>
+</html>
